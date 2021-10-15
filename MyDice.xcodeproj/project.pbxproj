@@ -18,6 +18,14 @@
 		9016296227198A22006DD20A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9016296127198A22006DD20A /* Search.storyboard */; };
 		9016296427198A41006DD20A /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016296327198A41006DD20A /* SearchListViewController.swift */; };
 		9016296627198F23006DD20A /* SearchListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016296527198F23006DD20A /* SearchListViewCell.swift */; };
+		9016296827199D7A006DD20A /* SearchListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016296727199D7A006DD20A /* SearchListDataSource.swift */; };
+		901629702719D326006DD20A /* MatchList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9016296F2719D326006DD20A /* MatchList.storyboard */; };
+		901629722719D335006DD20A /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629712719D335006DD20A /* MatchListViewController.swift */; };
+		901629742719D36D006DD20A /* MatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629732719D36D006DD20A /* MatchListCell.swift */; };
+		901629762719D4AF006DD20A /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629752719D4AE006DD20A /* Opponent.swift */; };
+		901629782719D6C9006DD20A /* MatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629772719D6C9006DD20A /* MatchDetailViewController.swift */; };
+		9016297A2719E4A3006DD20A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629792719E4A3006DD20A /* User.swift */; };
+		9016297E2719EDF8006DD20A /* MatchListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016297D2719EDF8006DD20A /* MatchListDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +42,14 @@
 		9016296127198A22006DD20A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9016296327198A41006DD20A /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		9016296527198F23006DD20A /* SearchListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewCell.swift; sourceTree = "<group>"; };
+		9016296727199D7A006DD20A /* SearchListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListDataSource.swift; sourceTree = "<group>"; };
+		9016296F2719D326006DD20A /* MatchList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MatchList.storyboard; sourceTree = "<group>"; };
+		901629712719D335006DD20A /* MatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
+		901629732719D36D006DD20A /* MatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCell.swift; sourceTree = "<group>"; };
+		901629752719D4AE006DD20A /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
+		901629772719D6C9006DD20A /* MatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailViewController.swift; sourceTree = "<group>"; };
+		901629792719E4A3006DD20A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9016297D2719EDF8006DD20A /* MatchListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +84,7 @@
 			children = (
 				9016294627174E12006DD20A /* AppDelegate.swift */,
 				9016294827174E12006DD20A /* SceneDelegate.swift */,
+				9016296E2719D2F0006DD20A /* New */,
 				9016295F27177EB1006DD20A /* Controller */,
 				9016295C27175425006DD20A /* Model */,
 				9016296027177EB9006DD20A /* View */,
@@ -92,6 +109,7 @@
 			children = (
 				9016294A27174E12006DD20A /* MatchViewController.swift */,
 				9016296327198A41006DD20A /* SearchListViewController.swift */,
+				9016296727199D7A006DD20A /* SearchListDataSource.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,6 +122,20 @@
 				9016296527198F23006DD20A /* SearchListViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9016296E2719D2F0006DD20A /* New */ = {
+			isa = PBXGroup;
+			children = (
+				9016296F2719D326006DD20A /* MatchList.storyboard */,
+				901629772719D6C9006DD20A /* MatchDetailViewController.swift */,
+				901629712719D335006DD20A /* MatchListViewController.swift */,
+				9016297D2719EDF8006DD20A /* MatchListDataSource.swift */,
+				901629732719D36D006DD20A /* MatchListCell.swift */,
+				901629752719D4AE006DD20A /* Opponent.swift */,
+				901629792719E4A3006DD20A /* User.swift */,
+			);
+			path = New;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +199,7 @@
 				9016295327174E13006DD20A /* LaunchScreen.storyboard in Resources */,
 				9016295027174E13006DD20A /* Assets.xcassets in Resources */,
 				9016296227198A22006DD20A /* Search.storyboard in Resources */,
+				901629702719D326006DD20A /* MatchList.storyboard in Resources */,
 				9016294E27174E12006DD20A /* Match.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,13 +211,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9016297A2719E4A3006DD20A /* User.swift in Sources */,
+				901629782719D6C9006DD20A /* MatchDetailViewController.swift in Sources */,
 				9016296427198A41006DD20A /* SearchListViewController.swift in Sources */,
 				9016294B27174E12006DD20A /* MatchViewController.swift in Sources */,
+				9016296827199D7A006DD20A /* SearchListDataSource.swift in Sources */,
 				9016294727174E12006DD20A /* AppDelegate.swift in Sources */,
 				9016296627198F23006DD20A /* SearchListViewCell.swift in Sources */,
+				901629742719D36D006DD20A /* MatchListCell.swift in Sources */,
+				9016297E2719EDF8006DD20A /* MatchListDataSource.swift in Sources */,
 				9016295B27174F2D006DD20A /* DiceLogic.swift in Sources */,
 				9016295E27175432006DD20A /* UserData.swift in Sources */,
+				901629762719D4AF006DD20A /* Opponent.swift in Sources */,
 				9016294927174E12006DD20A /* SceneDelegate.swift in Sources */,
+				901629722719D335006DD20A /* MatchListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +378,7 @@
 				INFOPLIST_FILE = MyDice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Search;
+				INFOPLIST_KEY_UIMainStoryboardFile = MatchList;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -366,7 +406,7 @@
 				INFOPLIST_FILE = MyDice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Search;
+				INFOPLIST_KEY_UIMainStoryboardFile = MatchList;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -8,24 +8,26 @@
 import UIKit
 
 class SearchListViewController: UITableViewController {
+    static let matchSegueIdentifier = "MatchSegueIdentifier"
+    private var searchListDataSource: SearchListDataSource?
     
-}
-
-extension SearchListViewController {
-    static let searchListCellIdentifier = "SearchListCell"
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ComData.data.count
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let matchViewController = segue.destination as? MatchViewController else {
+            fatalError("destination is not exist")
+        }
+        guard let cell  = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
+            fatalError("cell is not exist")
+        }
+        
+        matchViewController.receivedCom = ComData.data[indexPath.row]
+                
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.searchListCellIdentifier, for: indexPath) as? SearchListViewCell else {
-            fatalError("Unable to dequeue SearchCell")
-        }
-
-        let opponent = ComData.data[indexPath.row]
-        cell.titleLabel.text = "com " +  String(indexPath.row)
-        cell.diceCount.text = String(opponent.diceCount)
-        return cell
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        searchListDataSource = SearchListDataSource()
+        tableView.dataSource = searchListDataSource
     }
 }

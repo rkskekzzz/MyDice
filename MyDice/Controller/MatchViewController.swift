@@ -23,6 +23,8 @@ class MatchViewController: UIViewController {
     @IBOutlet var comCount: UILabel!
     @IBOutlet var comResult: UILabel!
     
+    var receivedCom: ComData? = nil
+    
     private var myGameState: GameState {
         get { gameState }
         set {
@@ -53,7 +55,8 @@ class MatchViewController: UIViewController {
     private var diceLogic = DiceLogic()
     
     private var user = UserData.data
-    private var com = ComData.data[0]
+//    private var com = ComData.data[0]
+    private var com: ComData = ComData(diceCount: 99)
     
     private var userDiceCount: Int {
         get { user.diceCount }
@@ -86,8 +89,20 @@ class MatchViewController: UIViewController {
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let receivedCom = receivedCom else {
+            fatalError("receivedCom data doesn't exist")
+        }
+        com = receivedCom
+        comCount.text = String(com.diceCount)
+    }
 
     @IBAction func rollButtonClicked(_ sender: Any) {
+        print("before : \(UserData.data.diceCount)")
+        print("after : \(UserData.data.diceCount)")
         
         switch gameState {
         case .ongoing:

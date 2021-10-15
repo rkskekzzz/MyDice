@@ -15,11 +15,14 @@ enum State {
 class MatchDetailViewController: UIViewController {
     typealias MatchChangeAction = (Opponent, User) -> Void
     
-    @IBOutlet var rollButton: UIButton!
-    @IBOutlet var userResult: UILabel!
-    @IBOutlet var userCount: UILabel!
-    @IBOutlet var opponentCount: UILabel!
-    @IBOutlet var opponentResult: UILabel!
+    @IBOutlet var opponentNameLabel: UILabel!
+    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var userResultLabel: UILabel!
+    @IBOutlet var userCountLabel: UILabel!
+    @IBOutlet var opponentCountLabel: UILabel!
+    @IBOutlet var opponentResultLabel: UILabel!
+
+    @IBOutlet var gamePlayButton: UIButton!
     
     private var diceLogic = DiceLogic()
     private var gameState: State = .wait
@@ -30,14 +33,13 @@ class MatchDetailViewController: UIViewController {
             gameState = newValue
             switch gameState {
             case .rolled:
-                userResult.text = currentUserResult!.description
-                rollButton.setTitle("Again!", for: .normal)
+                gamePlayButton.setTitle("Again!", for: .normal)
             case .wait:
                 currentUserResult = 0
                 currentOpponentResult = 0
                 currentUserDiceCount = user!.diceCount
                 currentOpponentDiceCount = opponent!.diceCount
-                rollButton.setTitle("Roll the Dice!", for: .normal)
+                gamePlayButton.setTitle("Roll the Dice!", for: .normal)
             }
         }
     }
@@ -48,7 +50,7 @@ class MatchDetailViewController: UIViewController {
     
     private var currentUserResult: Int? {
         willSet {
-            userResult.text = newValue!.description
+            userResultLabel.text = newValue!.description
         }
     }
     
@@ -58,13 +60,13 @@ class MatchDetailViewController: UIViewController {
         }
         set {
             user!.diceCount = newValue
-            userCount.text = newValue.description
+            userCountLabel.text = newValue.description
         }
     }
     
     private var currentOpponentResult: Int? {
         willSet {
-            opponentResult.text = newValue!.description
+            opponentResultLabel.text = newValue!.description
         }
     }
     
@@ -74,7 +76,7 @@ class MatchDetailViewController: UIViewController {
         }
         set {
             opponent!.diceCount = newValue
-            opponentCount.text = newValue.description
+            opponentCountLabel.text = newValue.description
         }
     }
     
@@ -90,9 +92,6 @@ class MatchDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         guard let opponent = opponent else {
             fatalError("opponent is nil")
         }
@@ -102,7 +101,11 @@ class MatchDetailViewController: UIViewController {
         
         self.opponent = opponent
         self.user = user
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        userNameLabel.text = user!.name
+        opponentNameLabel.text = opponent!.name
         currentGameState = .wait
     }
     
@@ -116,25 +119,21 @@ class MatchDetailViewController: UIViewController {
             case .draw:
                 break
             case .win:
-                print("user win! \(self.user!.diceCount) + \(currentOpponentDiceCount)")
-                self.user!.diceCount += currentOpponentDiceCount
+                user!.diceCount += currentOpponentDiceCount
                 currentOpponentDiceCount = 1
             case .lose:
-                print("user win! \(self.user!.diceCount) + \(currentOpponentDiceCount)")
-                self.opponent!.diceCount += currentUserDiceCount
+                opponent!.diceCount += currentUserDiceCount
                 currentUserDiceCount = 1
             }
             matchChangeAction?(opponent!, user!)
-            currentGameState = .wait
             
+            currentGameState = .wait
         case .wait:
             diceLogic.setDiceCount(opponent!.diceCount)
             currentOpponentResult = diceLogic.sumOfDiceRolls()
             
             diceLogic.setDiceCount(user!.diceCount)
             currentUserResult = diceLogic.sumOfDiceRolls()
-            
-            print("user \(currentUserResult), oppo \(currentOpponentResult)")
             
             currentGameState = .rolled
         }

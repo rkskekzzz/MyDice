@@ -67,14 +67,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q80-T9-kmg">
-                                <rect key="frame" x="72" y="425" width="36" height="21"/>
+                                <rect key="frame" x="72" y="425" width="81" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsG-9t-fXO">
-                                <rect key="frame" x="72" y="361" width="36" height="21"/>
+                                <rect key="frame" x="72" y="361" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -139,11 +139,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="DLJ-gQ-amc"/>
                     <connections>
-                        <outlet property="opponentCount" destination="mQl-yD-sMe" id="V0h-q8-st8"/>
-                        <outlet property="opponentResult" destination="ejM-Y5-Yel" id="33a-wn-AtG"/>
-                        <outlet property="rollButton" destination="hFZ-2Y-rYb" id="jev-hr-mJo"/>
-                        <outlet property="userCount" destination="uWh-1G-UKq" id="t0U-Ud-rvk"/>
-                        <outlet property="userResult" destination="Y4t-EU-bTn" id="PNh-3l-PzI"/>
+                        <outlet property="gamePlayButton" destination="hFZ-2Y-rYb" id="jev-hr-mJo"/>
+                        <outlet property="opponentCountLabel" destination="mQl-yD-sMe" id="V0h-q8-st8"/>
+                        <outlet property="opponentNameLabel" destination="MsG-9t-fXO" id="8w5-Vs-FFE"/>
+                        <outlet property="opponentResultLabel" destination="ejM-Y5-Yel" id="33a-wn-AtG"/>
+                        <outlet property="userCountLabel" destination="uWh-1G-UKq" id="t0U-Ud-rvk"/>
+                        <outlet property="userNameLabel" destination="Q80-T9-kmg" id="xyT-HQ-nyJ"/>
+                        <outlet property="userResultLabel" destination="Y4t-EU-bTn" id="PNh-3l-PzI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6A-GD-65c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

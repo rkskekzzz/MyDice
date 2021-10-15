@@ -8,7 +8,6 @@
 import UIKit
 
 class MatchListViewController: UITableViewController {
-    
     private var matchListDataSource: MatchListDataSource?
     
     static let showDetailSegueIdentifier = "ShowMatchDetailSegue"
@@ -32,6 +31,10 @@ class MatchListViewController: UITableViewController {
         super.viewDidLoad()
         matchListDataSource = MatchListDataSource()
         tableView.dataSource = matchListDataSource
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 }
 

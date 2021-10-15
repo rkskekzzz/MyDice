@@ -13,7 +13,7 @@ enum GameState {
     case reset
 }
 
-class ViewController: UIViewController {
+class MatchViewController: UIViewController {
 
     @IBOutlet var rollButton: UIButton!
     
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     private var diceLogic = DiceLogic()
     
     private var user = UserData.data
-    private var com = ComData.data
+    private var com = ComData.data[0]
     
     private var userDiceCount: Int {
         get { user.diceCount }

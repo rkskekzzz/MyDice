@@ -23,7 +23,17 @@ struct ComData {
 }
 
 extension ComData {
-    static var data: ComData {
-        ComData(diceCount: 1)
+    static var data: [ComData] {
+        [
+            ComData(diceCount: 1),
+            ComData(diceCount: 1),
+            ComData(diceCount: 1),
+            ComData(diceCount: 1),
+            ComData(diceCount: 1),
+            ComData(diceCount: 1),
+            ComData(diceCount: 1),
+            ComData(diceCount: 1),
+            ComData(diceCount: 1)
+        ]
     }
 }

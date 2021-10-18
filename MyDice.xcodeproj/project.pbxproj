@@ -98,7 +98,6 @@
 		9016295C27175425006DD20A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9016295A27174F2D006DD20A /* DiceLogic.swift */,
 				9016295D27175432006DD20A /* UserData.swift */,
 			);
 			path = Model;
@@ -128,14 +127,31 @@
 			isa = PBXGroup;
 			children = (
 				9016296F2719D326006DD20A /* MatchList.storyboard */,
+				9016297F271D59B7006DD20A /* VC */,
+				90162980271D5A51006DD20A /* New Group */,
+				901629732719D36D006DD20A /* MatchListCell.swift */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		9016297F271D59B7006DD20A /* VC */ = {
+			isa = PBXGroup;
+			children = (
 				901629772719D6C9006DD20A /* MatchDetailViewController.swift */,
 				901629712719D335006DD20A /* MatchListViewController.swift */,
 				9016297D2719EDF8006DD20A /* MatchListDataSource.swift */,
-				901629732719D36D006DD20A /* MatchListCell.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		90162980271D5A51006DD20A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				9016295A27174F2D006DD20A /* DiceLogic.swift */,
 				901629752719D4AE006DD20A /* Opponent.swift */,
 				901629792719E4A3006DD20A /* User.swift */,
 			);
-			path = New;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -84,23 +84,20 @@ class MatchDetailViewController: UIViewController {
     private var matchChangeAction: MatchChangeAction?
 
 
-    func configure(with data: (Opponent: Opponent, user: User), changeAction: @escaping MatchChangeAction) {
-        self.opponent = data.Opponent
+    func configure(with data: (opponent: Opponent, user: User), changeAction: @escaping MatchChangeAction) {
+        self.opponent = data.opponent
         self.user = data.user
         self.matchChangeAction = changeAction
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let opponent = opponent else {
+        guard opponent != nil else {
             fatalError("opponent is nil")
         }
-        guard let user = user else {
+        guard user != nil else {
             fatalError("user is nil")
         }
-        
-        self.opponent = opponent
-        self.user = user
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,7 +116,7 @@ class MatchDetailViewController: UIViewController {
             case .draw:
                 break
             case .win:
-                user!.diceCount += currentOpponentDiceCount
+                currentUserDiceCount += currentOpponentDiceCount
                 currentOpponentDiceCount = 1
             case .lose:
                 opponent!.diceCount += currentUserDiceCount

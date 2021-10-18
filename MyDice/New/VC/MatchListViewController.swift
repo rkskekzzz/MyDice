@@ -18,7 +18,7 @@ class MatchListViewController: UITableViewController {
            let cell = sender as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
             let rowIndex = indexPath.row
-            guard let opponent = matchListDataSource?.opponent(at: rowIndex), let user = matchListDataSource?.user(at: rowIndex) else {
+            guard let opponent = matchListDataSource?.opponent(at: rowIndex), let user = matchListDataSource?.user() else {
                 fatalError("Couldn't find data source for reminder list.")
             }
             destination.configure(with: (opponent, user)) { (opponent, user) in

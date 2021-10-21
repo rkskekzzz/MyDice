@@ -21,7 +21,6 @@ struct DiceLogic {
     }
     
     func sumOfDiceRolls() -> Int {
-        
         var sum: Int = 0
         
         guard let diceCount = diceCount else {

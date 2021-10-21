@@ -23,10 +23,12 @@ class MatchListDataSource: NSObject {
 }
 
 extension MatchListDataSource: UITableViewDataSource {
+//    typealias availableOpponent: (testData: Opponent) -> Bool
     static let reminderListCellIdentifier = "MatchListCell"
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Opponent.testData.count
+//        return Opponent.testData.filter({ $0.diceCount * 6 < }).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

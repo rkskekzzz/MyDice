@@ -37,7 +37,8 @@ class MatchDetailViewController: UIViewController {
             case .wait:
                 currentUserResult = 0
                 currentOpponentResult = 0
-                currentUserDiceCount = user!.diceCount
+                userCountLabel.text = currentUserDiceCount.description
+                opponentCountLabel.text = currentOpponentDiceCount.description
                 currentOpponentDiceCount = opponent!.diceCount
                 gamePlayButton.setTitle("Roll the Dice!", for: .normal)
             }
@@ -55,13 +56,8 @@ class MatchDetailViewController: UIViewController {
     }
     
     private var currentUserDiceCount: Int {
-        get {
-            user!.diceCount
-        }
-        set {
-            user!.diceCount = newValue
-            userCountLabel.text = newValue.description
-        }
+        get { user!.diceCount }
+        set { user!.diceCount = newValue }
     }
     
     private var currentOpponentResult: Int? {
@@ -71,13 +67,8 @@ class MatchDetailViewController: UIViewController {
     }
     
     private var currentOpponentDiceCount: Int {
-        get {
-            opponent!.diceCount
-        }
-        set {
-            opponent!.diceCount = newValue
-            opponentCountLabel.text = newValue.description
-        }
+        get { opponent!.diceCount }
+        set { opponent!.diceCount = newValue }
     }
     
     
@@ -119,7 +110,7 @@ class MatchDetailViewController: UIViewController {
                 currentUserDiceCount += currentOpponentDiceCount
                 currentOpponentDiceCount = 1
             case .lose:
-                opponent!.diceCount += currentUserDiceCount
+                currentOpponentDiceCount += currentUserDiceCount
                 currentUserDiceCount = 1
             }
             matchChangeAction?(opponent!, user!)

@@ -8,9 +8,16 @@
 import UIKit
 
 class MatchListViewController: UITableViewController {
-    private var matchListDataSource: MatchListDataSource?
+    @IBOutlet var filterSegmentedControl: UISegmentedControl!
     
     static let showDetailSegueIdentifier = "ShowMatchDetailSegue"
+    
+    private var matchListDataSource: MatchListDataSource?
+    private var filter: MatchListDataSource.Filter {
+           return MatchListDataSource.Filter(rawValue: filterSegmentedControl.selectedSegmentIndex) ?? .all
+       }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Self.showDetailSegueIdentifier,
@@ -27,7 +34,7 @@ class MatchListViewController: UITableViewController {
         }
     }
     
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         matchListDataSource = MatchListDataSource()
         tableView.dataSource = matchListDataSource
@@ -36,6 +43,12 @@ class MatchListViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
+    
+    @IBAction func segmentControlChanged(_ sender: Any) {
+        matchListDataSource?.filter = filter
+        tableView.reloadData()
+    }
+
 }
 
 //extension MatchListViewController {

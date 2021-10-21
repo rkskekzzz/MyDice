@@ -39,7 +39,6 @@ class MatchDetailViewController: UIViewController {
                 currentOpponentResult = 0
                 userCountLabel.text = currentUserDiceCount.description
                 opponentCountLabel.text = currentOpponentDiceCount.description
-                currentOpponentDiceCount = opponent!.diceCount
                 gamePlayButton.setTitle("Roll the Dice!", for: .normal)
             }
         }

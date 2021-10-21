@@ -82,12 +82,12 @@
 		9016294527174E12006DD20A /* MyDice */ = {
 			isa = PBXGroup;
 			children = (
+				90162981271E9E3E006DD20A /* View */,
+				9016297F271D59B7006DD20A /* Controller */,
+				90162980271D5A51006DD20A /* Model */,
 				9016294627174E12006DD20A /* AppDelegate.swift */,
 				9016294827174E12006DD20A /* SceneDelegate.swift */,
-				9016296E2719D2F0006DD20A /* New */,
-				9016295F27177EB1006DD20A /* Controller */,
-				9016295C27175425006DD20A /* Model */,
-				9016296027177EB9006DD20A /* View */,
+				904CB87627214CAE0037304A /* TempCode */,
 				9016294F27174E13006DD20A /* Assets.xcassets */,
 				9016295127174E13006DD20A /* LaunchScreen.storyboard */,
 				9016295427174E13006DD20A /* Info.plist */,
@@ -123,17 +123,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9016296E2719D2F0006DD20A /* New */ = {
-			isa = PBXGroup;
-			children = (
-				90162981271E9E3E006DD20A /* View */,
-				9016297F271D59B7006DD20A /* Controller */,
-				90162980271D5A51006DD20A /* Model */,
-				901629732719D36D006DD20A /* MatchListCell.swift */,
-			);
-			path = New;
-			sourceTree = "<group>";
-		};
 		9016297F271D59B7006DD20A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,8 +147,19 @@
 			isa = PBXGroup;
 			children = (
 				9016296F2719D326006DD20A /* MatchList.storyboard */,
+				901629732719D36D006DD20A /* MatchListCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		904CB87627214CAE0037304A /* TempCode */ = {
+			isa = PBXGroup;
+			children = (
+				9016295F27177EB1006DD20A /* Controller */,
+				9016295C27175425006DD20A /* Model */,
+				9016296027177EB9006DD20A /* View */,
+			);
+			path = TempCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

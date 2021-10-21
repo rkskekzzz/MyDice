@@ -12,7 +12,6 @@ enum DiceRule {
 }
 
 struct DiceLogic {
-    
     var diceCount: Int?
     var resultDiceCount: (Int, Int)?
     

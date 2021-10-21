@@ -22,9 +22,8 @@
 		901629702719D326006DD20A /* MatchList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9016296F2719D326006DD20A /* MatchList.storyboard */; };
 		901629722719D335006DD20A /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629712719D335006DD20A /* MatchListViewController.swift */; };
 		901629742719D36D006DD20A /* MatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629732719D36D006DD20A /* MatchListCell.swift */; };
-		901629762719D4AF006DD20A /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629752719D4AE006DD20A /* Opponent.swift */; };
 		901629782719D6C9006DD20A /* MatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629772719D6C9006DD20A /* MatchDetailViewController.swift */; };
-		9016297A2719E4A3006DD20A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629792719E4A3006DD20A /* User.swift */; };
+		9016297A2719E4A3006DD20A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901629792719E4A3006DD20A /* Player.swift */; };
 		9016297E2719EDF8006DD20A /* MatchListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016297D2719EDF8006DD20A /* MatchListDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,9 +45,8 @@
 		9016296F2719D326006DD20A /* MatchList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MatchList.storyboard; sourceTree = "<group>"; };
 		901629712719D335006DD20A /* MatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
 		901629732719D36D006DD20A /* MatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCell.swift; sourceTree = "<group>"; };
-		901629752719D4AE006DD20A /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		901629772719D6C9006DD20A /* MatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailViewController.swift; sourceTree = "<group>"; };
-		901629792719E4A3006DD20A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		901629792719E4A3006DD20A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9016297D2719EDF8006DD20A /* MatchListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,8 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				9016295A27174F2D006DD20A /* DiceLogic.swift */,
-				901629752719D4AE006DD20A /* Opponent.swift */,
-				901629792719E4A3006DD20A /* User.swift */,
+				901629792719E4A3006DD20A /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9016297A2719E4A3006DD20A /* User.swift in Sources */,
+				9016297A2719E4A3006DD20A /* Player.swift in Sources */,
 				901629782719D6C9006DD20A /* MatchDetailViewController.swift in Sources */,
 				9016296427198A41006DD20A /* SearchListViewController.swift in Sources */,
 				9016294B27174E12006DD20A /* MatchViewController.swift in Sources */,
@@ -246,7 +243,6 @@
 				9016297E2719EDF8006DD20A /* MatchListDataSource.swift in Sources */,
 				9016295B27174F2D006DD20A /* DiceLogic.swift in Sources */,
 				9016295E27175432006DD20A /* UserData.swift in Sources */,
-				901629762719D4AF006DD20A /* Opponent.swift in Sources */,
 				9016294927174E12006DD20A /* SceneDelegate.swift in Sources */,
 				901629722719D335006DD20A /* MatchListViewController.swift in Sources */,
 			);

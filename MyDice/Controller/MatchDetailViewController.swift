@@ -13,7 +13,7 @@ enum State {
 }
 
 class MatchDetailViewController: UIViewController {
-    typealias MatchChangeAction = (Opponent, User) -> Void
+    typealias MatchChangeAction = (Player, Player) -> Void
     
     @IBOutlet var opponentNameLabel: UILabel!
     @IBOutlet var userNameLabel: UILabel!
@@ -44,8 +44,8 @@ class MatchDetailViewController: UIViewController {
         }
     }
     
-    private var user: User?
-    private var opponent: Opponent?
+    private var user: Player?
+    private var opponent: Player?
     
     
     private var currentUserResult: Int? {
@@ -74,7 +74,7 @@ class MatchDetailViewController: UIViewController {
     private var matchChangeAction: MatchChangeAction?
 
 
-    func configure(with data: (opponent: Opponent, user: User), changeAction: @escaping MatchChangeAction) {
+    func configure(with data: (opponent: Player, user: Player), changeAction: @escaping MatchChangeAction) {
         self.opponent = data.opponent
         self.user = data.user
         self.matchChangeAction = changeAction

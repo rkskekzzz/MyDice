@@ -43,23 +43,20 @@ class MatchListDataSource: NSObject {
 }
 
 extension MatchListDataSource: UITableViewDataSource {
-    //    typealias availableOpponent: (testData: Opponent) -> Bool
     static let reminderListCellIdentifier = "MatchListCell"
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredOpponents.count
-        //        return Opponent.testData.filter({ $0.diceCount * 6 < }).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.reminderListCellIdentifier, for: indexPath) as? MatchListCell else {
             fatalError("Unable to dequeue ReminderCell")
         }
-        let match = filteredOpponents[indexPath.row]
-        
-        cell.nameLabel.text = match.name
-        cell.countLabel.text = match.diceCount.description
-        
+        let match = opponent(at: indexPath.row)
+
+        cell.configure(title: match.name, count: match.diceCount.description)
+
         return cell
     }
 }

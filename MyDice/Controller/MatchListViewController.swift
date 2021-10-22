@@ -28,8 +28,8 @@ class MatchListViewController: UITableViewController {
             guard let opponent = matchListDataSource?.opponent(at: rowIndex), let user = matchListDataSource?.user() else {
                 fatalError("Couldn't find data source for reminder list.")
             }
-            destination.configure(with: (opponent, user)) { (opponent, user) in
-                self.matchListDataSource?.update((opponent, user), at: rowIndex)
+            destination.configure(with: (opponent, user)) { //(opponent, user) in
+                self.matchListDataSource?.update(($0, $1), at: rowIndex)
                 self.tableView.reloadData()
             }
         }

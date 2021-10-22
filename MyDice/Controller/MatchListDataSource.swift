@@ -16,7 +16,7 @@ class MatchListDataSource: NSObject {
         func shouldInclude(opponent: Player) -> Bool {
             switch self {
             case .ableToFight:
-                return (Player.testUser.diceCount * 1 <= opponent.diceCount * 6) && (Player.testUser.diceCount * 6 >= opponent.diceCount * 1)
+                return (Player.testUser.getDiceCount() * 1 <= opponent.getDiceCount() * 6) && (Player.testUser.getDiceCount() * 6 >= opponent.getDiceCount() * 1)
             case .all:
                 return true
             }
@@ -46,7 +46,7 @@ class MatchListDataSource: NSObject {
     func index(for filteredIndex: Int) -> Int {
         let filteredOpponents = filteredOpponents[filteredIndex]
         
-        guard let index = Player.testOpponent.firstIndex(where: { $0.id == filteredOpponents.id }) else {
+        guard let index = Player.testOpponent.firstIndex(where: { $0.getId() == filteredOpponents.getId() }) else {
             fatalError("Couldn't retrieve index in source array")
         }
         return index
@@ -68,7 +68,7 @@ extension MatchListDataSource: UITableViewDataSource {
         
         let match = opponent(at: indexPath.row)
 
-        cell.configure(title: match.name, count: match.diceCount.description)
+        cell.configure(title: match.getName(), count: match.getDiceCount().description)
 
         return cell
     }

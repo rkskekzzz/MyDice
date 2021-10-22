@@ -8,10 +8,46 @@
 import Foundation
 
 struct Player {
-    var id: String
-    var name: String
-    var diceCount: Int
-    var result: Int?
+    private var id: String
+    private var name: String
+    private var diceCount: Int
+    private var defaultDiceCount: Int
+    
+    private var rangeOfDiceValue: ClosedRange<Int>
+    
+
+    mutating
+    func resetDiceCount() { self.diceCount = defaultDiceCount }
+    func getDiceCount() -> Int { diceCount }
+    
+    mutating
+    func takeDice(from player: Player) {
+        self.diceCount += player.diceCount
+    }
+    
+    mutating
+    func setName(_ name: String) { self.name = name }
+    func getName() -> String { name }
+    
+    func getId() -> String { id }
+    
+    func sumOfRollDice() -> Int {
+        var sum: Int = 0
+        
+        for _ in 1...diceCount  {
+            sum += Int.random(in: 1...6)
+        }
+        
+        return sum
+    }
+    
+    init(id: String, name: String, diceCount: Int, result: Int? = nil, defaultDiceCount: Int = 1, rangeOfDiceValue: ClosedRange<Int> = 1...6) {
+        self.id = id
+        self.name = name
+        self.diceCount = diceCount
+        self.defaultDiceCount = defaultDiceCount
+        self.rangeOfDiceValue = rangeOfDiceValue
+    }
 }
 
 extension Player {

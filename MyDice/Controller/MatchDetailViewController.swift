@@ -37,42 +37,26 @@ class MatchDetailViewController: UIViewController {
             case .wait:
                 currentUserResult = 0
                 currentOpponentResult = 0
-                userCountLabel.text = currentUserDiceCount.description
-                opponentCountLabel.text = currentOpponentDiceCount.description
+                userCountLabel.text = user.getDiceCount().description
+                opponentCountLabel.text = opponent.getDiceCount().description
                 gamePlayButton.setTitle("Roll the Dice!", for: .normal)
             }
         }
     }
     
-    private var user: Player?
-    private var opponent: Player?
-    
-    
-    private var currentUserResult: Int? {
-        willSet {
-            userResultLabel.text = newValue!.description
-        }
-    }
-    
-    private var currentUserDiceCount: Int {
-        get { user!.diceCount }
-        set { user!.diceCount = newValue }
-    }
-    
-    private var currentOpponentResult: Int? {
-        willSet {
-            opponentResultLabel.text = newValue!.description
-        }
-    }
-    
-    private var currentOpponentDiceCount: Int {
-        get { opponent!.diceCount }
-        set { opponent!.diceCount = newValue }
-    }
-    
+    private var user: Player!
+    private var opponent: Player!
     
     private var matchChangeAction: MatchChangeAction?
-
+    
+    private var currentUserResult: Int = 0 {
+        willSet { userResultLabel.text = newValue.description }
+    }
+    
+    private var currentOpponentResult: Int = 0 {
+        willSet { opponentResultLabel.text = newValue.description }
+    }
+    
 
     func configure(with data: (opponent: Player, user: Player), changeAction: @escaping MatchChangeAction) {
         self.opponent = data.opponent
@@ -82,53 +66,43 @@ class MatchDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard opponent != nil else {
+        guard let _ = opponent else {
             fatalError("opponent is nil")
         }
-        guard user != nil else {
+        guard let _ = user else {
             fatalError("user is nil")
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        userNameLabel.text = user!.name
-        opponentNameLabel.text = opponent!.name
+        userNameLabel.text = user.getName()
+        opponentNameLabel.text = opponent.getName()
         currentGameState = .wait
     }
     
     @IBAction func buttonClicked(_ sender: Any) {
         switch currentGameState {
         case .rolled:
-            let gameResult = diceLogic.resultOfCompetition(user: currentUserResult!, com: currentOpponentResult!)
+            let gameResult = diceLogic.resultOfCompetition(user: currentUserResult, com: currentOpponentResult)
 
             print("game result : \(gameResult)")
             switch gameResult {
             case .draw:
                 break
             case .win:
-                currentUserDiceCount += currentOpponentDiceCount
-                currentOpponentDiceCount = 1
+                user.takeDice(from: opponent)
+                opponent.resetDiceCount()
             case .lose:
-                currentOpponentDiceCount += currentUserDiceCount
-                currentUserDiceCount = 1
+                opponent.takeDice(from: user)
+                user.resetDiceCount()
             }
-            matchChangeAction?(opponent!, user!)
-            
+            matchChangeAction?(opponent, user)
             currentGameState = .wait
         case .wait:
-            diceLogic.setDiceCount(opponent!.diceCount)
-            currentOpponentResult = diceLogic.sumOfDiceRolls()
-            
-            diceLogic.setDiceCount(user!.diceCount)
-            currentUserResult = diceLogic.sumOfDiceRolls()
-            
+            currentOpponentResult = opponent.sumOfRollDice()
+            currentUserResult = user.sumOfRollDice()
+    
             currentGameState = .rolled
         }
-
-        
     }
-}
-
-extension MatchViewController {
-    
 }

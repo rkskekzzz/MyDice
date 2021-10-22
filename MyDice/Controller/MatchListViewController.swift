@@ -30,6 +30,7 @@ class MatchListViewController: UITableViewController {
             }
             destination.configure(with: (opponent, user)) { (opponent, user) in
                 self.matchListDataSource?.update((opponent, user), at: rowIndex)
+                self.tableView.reloadData()
             }
         }
     }

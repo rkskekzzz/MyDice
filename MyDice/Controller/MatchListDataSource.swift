@@ -29,8 +29,11 @@ class MatchListDataSource: NSObject {
     }
     
     func update(_ match: (opponent: Player, user: Player), at row: Int) {
-        Player.testOpponent[row] = match.opponent
+        let opponentIndex = self.index(for: row)
+
+        Player.testOpponent[opponentIndex] = match.opponent
         Player.testUser = match.user
+        
     }
     
     func opponent(at row: Int) -> Player {
@@ -40,6 +43,15 @@ class MatchListDataSource: NSObject {
     func user() -> Player {
         return Player.testUser
     }
+    
+    func index(for filteredIndex: Int) -> Int {
+        let filteredOpponents = filteredOpponents[filteredIndex]
+        guard let index = Player.testOpponent.firstIndex(where: { $0.id == filteredOpponents.id }) else {
+            fatalError("Couldn't retrieve index in source array")
+        }
+        return index
+    }
+    
 }
 
 extension MatchListDataSource: UITableViewDataSource {
@@ -53,6 +65,7 @@ extension MatchListDataSource: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.reminderListCellIdentifier, for: indexPath) as? MatchListCell else {
             fatalError("Unable to dequeue ReminderCell")
         }
+        
         let match = opponent(at: indexPath.row)
 
         cell.configure(title: match.name, count: match.diceCount.description)

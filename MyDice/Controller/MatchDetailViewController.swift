@@ -47,7 +47,7 @@ class MatchDetailViewController: UIViewController {
     private var user: Player!
     private var opponent: Player!
     
-    private var matchChangeAction: MatchChangeAction?
+    private var matchChangeAction: MatchChangeAction!
     
     private var currentUserResult: Int = 0 {
         willSet { userResultLabel.text = newValue.description }
@@ -67,10 +67,13 @@ class MatchDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let _ = opponent else {
-            fatalError("opponent is nil")
+            fatalError("Opponent is nil")
         }
         guard let _ = user else {
-            fatalError("user is nil")
+            fatalError("User is nil")
+        }
+        guard let _ = matchChangeAction else {
+            fatalError("Action is nil")
         }
     }
     
@@ -96,7 +99,7 @@ class MatchDetailViewController: UIViewController {
                 opponent.takeDice(from: user)
                 user.resetDiceCount()
             }
-            matchChangeAction?(opponent, user)
+            matchChangeAction(opponent, user)
             currentGameState = .wait
         case .wait:
             currentOpponentResult = opponent.sumOfRollDice()

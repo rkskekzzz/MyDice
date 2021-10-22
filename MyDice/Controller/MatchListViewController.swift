@@ -14,8 +14,8 @@ class MatchListViewController: UITableViewController {
     
     private var matchListDataSource: MatchListDataSource?
     private var filter: MatchListDataSource.Filter {
-           return MatchListDataSource.Filter(rawValue: filterSegmentedControl.selectedSegmentIndex) ?? .all
-       }
+        return MatchListDataSource.Filter(rawValue: filterSegmentedControl.selectedSegmentIndex) ?? .all
+    }
     
     
     
@@ -35,7 +35,7 @@ class MatchListViewController: UITableViewController {
         }
     }
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         matchListDataSource = MatchListDataSource()
         tableView.dataSource = matchListDataSource
@@ -49,7 +49,7 @@ class MatchListViewController: UITableViewController {
         matchListDataSource?.filter = filter
         tableView.reloadData()
     }
-
+    
 }
 
 //extension MatchListViewController {

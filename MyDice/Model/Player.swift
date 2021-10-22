@@ -35,7 +35,7 @@ struct Player {
         var sum: Int = 0
         
         for _ in 1...diceCount  {
-            sum += Int.random(in: 1...6)
+            sum += Int.random(in: rangeOfDiceValue)
         }
         
         return sum

@@ -46,7 +46,7 @@ class MatchListDataSource: NSObject {
     func index(for filteredIndex: Int) -> Int {
         let filteredOpponents = filteredOpponents[filteredIndex]
         
-        guard let index = Player.testOpponent.firstIndex(where: { $0.getId() == filteredOpponents.getId() }) else {
+        guard let index = Player.testOpponent.firstIndex(where: { $0.getId == filteredOpponents.getId }) else {
             fatalError("Couldn't retrieve index in source array")
         }
         return index

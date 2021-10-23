@@ -9,13 +9,12 @@ import Foundation
 
 struct Player {
     private var id: String
-    private var name: String
+    private var _name: String
     private var diceCount: Int
     private var defaultDiceCount: Int
     
     private var rangeOfDiceValue: ClosedRange<Int>
     
-
     mutating
     func resetDiceCount() { self.diceCount = defaultDiceCount }
     func getDiceCount() -> Int { diceCount }
@@ -29,7 +28,7 @@ struct Player {
     func setName(_ name: String) { self.name = name }
     func getName() -> String { name }
     
-    func getId() -> String { id }
+    var getId: String { id }
     
     func sumOfRollDice() -> Int {
         var sum: Int = 0
@@ -43,7 +42,7 @@ struct Player {
     
     init(id: String, name: String, diceCount: Int, result: Int? = nil, defaultDiceCount: Int = 1, rangeOfDiceValue: ClosedRange<Int> = 1...6) {
         self.id = id
-        self.name = name
+        self._name = name
         self.diceCount = diceCount
         self.defaultDiceCount = defaultDiceCount
         self.rangeOfDiceValue = rangeOfDiceValue

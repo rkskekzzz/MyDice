@@ -21,8 +21,7 @@ class MatchListDataSource: NSObject {
                 return true
             }
         }
-    }
-    
+    } 
     var filter: Filter = .ableToFight
     var filteredOpponents: [Player] {
         return Player.testOpponent.filter {filter.shouldInclude(opponent: $0)}

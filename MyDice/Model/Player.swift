@@ -25,8 +25,8 @@ struct Player {
     }
     
     mutating
-    func setName(_ name: String) { self.name = name }
-    func getName() -> String { name }
+    func setName(_ name: String) { self._name = name }
+    func getName() -> String { _name }
     
     var getId: String { id }
     
